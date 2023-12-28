@@ -124,7 +124,7 @@ function editContact1(id) {
 
 
 function deleteAndReturnStatus(id) {
-  var deletionStatus = contactManager.deleteContact(id);
+  var deletionStatus = contactManager.delete(id);
   console.log(deletionStatus);
   displayContacts();
 }

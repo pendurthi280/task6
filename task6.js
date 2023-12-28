@@ -97,7 +97,7 @@ var count=0;
 
 
 function editContact1(id) {
-  var editedContact = contactManager.getContactById(id);
+  var editedContact = contactManager.getById(id);
   if (editedContact) {
     editedContact.Email = prompt("Enter the new email for " + id + ":", editedContact.email);
     editedContact.Phone = prompt("Enter the new phone number for " + id + ":", editedContact.phoneNumber);

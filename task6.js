@@ -97,16 +97,25 @@ var count=0;
 
 
 function editContact1(id) {
+  mailformat = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+  var phonematch=/^[91][0-9]{11}$/;
   var editedContact = contactManager.getById(id);
+  console.log(editedContact);
   if (editedContact) {
     editedContact.Email = prompt("Enter the new email for " + id + ":", editedContact.email);
     editedContact.Phone = prompt("Enter the new phone number for " + id + ":", editedContact.phoneNumber);
     editedContact.Website = prompt("Enter the new  wedsite for " + id + ":", editedContact.wedsite);
     editedContact.Address = prompt("Enter the new  address for " + id + ":", editedContact.Address);
-
-    var updatedContact = contactManager.editContact(id, editedContact);
-    console.log(updatedContact);
-    displayContacts();
+    if(editedContact.Email !="" && editedContact.Phone !="" && editedContact.Website  !=""  &&   editedContact.Address!="" &&    editedContact.Email.match(mailformat) && editedContact.Phone.match(phonematch) )
+    {
+     var updatedContact = contactManager.editContact(id, editedContact);
+     console.log(updatedContact);
+     displayContacts();
+    }
+    else
+    {
+      alert("enter correct data and full data");
+    }
   }
   else {
     console.log("Contact not found.");

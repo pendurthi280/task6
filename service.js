@@ -35,26 +35,11 @@ class ContactManager
     return false;
 
   }
-  getById(id) 
+   getById(id) 
   {
-    for (var i = 0; i < this.contacts.length; i++) 
-    {
-       var contacts = contactManager.contacts[i];
-       console.log(contacts);
-    }
-
+    return this.contacts.find(contact => contact.id === id) || null;
+        
   }
-
-
-
-  get(id) 
-  {
-    for (var i = 0; i < this.contacts.length; i++) 
-   {
-       var item = JSON.parse( localStorage.getItem('contacts') ) ;
-       console.log(item);
-     
-   }
     
-  }
+  
 }

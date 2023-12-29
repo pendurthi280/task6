@@ -16,7 +16,7 @@ class ContactManager
   }
 
   editContact(id, updatedContactModel) {
-    var index = this.contacts.findIndex(contact => contact.id === id);
+    var index = this.contacts.findIndex(function(contact){return contact.id===id;});
      console.log(index);
     if (index !== -1) {
       this.contacts[index] = updatedContactModel;
@@ -30,7 +30,7 @@ class ContactManager
 
   delete(id) {
 
-    var index = this.contacts.findIndex(contact => contact.id === id);
+    var index = this.contacts.findIndex(function(contact){return contact.id===id;});
     if (index !== -1) {
       this.contacts.splice(index, 1);
       var allContacts=this.get();
